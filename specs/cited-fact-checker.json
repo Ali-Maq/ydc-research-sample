@@ -1,0 +1,16 @@
+{
+  "id": "cited-fact-checker",
+  "target_repository": "Ali-Maq/ydc-research-sample",
+  "reference": {
+    "repository": "perplexityai/api-cookbook",
+    "commit": "543c229320acf9204d47a3ff91f13349b57047be",
+    "path": "docs/examples/fact-checker-cli/fact_checker.py",
+    "sha256": "3f1ca8cdff580c2d1de055cdf79fc5042d59eb6b0f3be07a9084ded48c2fcb3d"
+  },
+  "contract": {
+    "parse_reference_content": "Match the upstream FactChecker._parse_response for valid text: plain JSON, fenced JSON, and source-line fallback.",
+    "normalize_response": "Adapt You.com output.content plus output.sources into overall_rating, summary, claims and citations. Require known ratings, nonempty claims, valid HTTP(S) URLs without credentials, and every cited claim URL to belong to the provider's source list. Resolve exact [n] or [[n]] source references with one-based indices. Non-UNVERIFIABLE claims need at least one source. Reject malformed or unsupported responses with ValueError; never silently turn them into a successful report."
+  },
+  "scope": "Port the cited fact-checking output contract to You.com Research. Citation consistency is checked; the test suite does not establish factual correctness or provider ranking.",
+  "allowed_paths": ["examples/fact-checker/normalize.py", "examples/fact-checker/tests/test_agent.py"]
+}
